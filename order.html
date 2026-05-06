@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Orders | MyShop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <h2 class="logo">My Shop</h2>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="order.html" class="active">Orders</a>
+    <a href="contact.html">Contact</a>
+    <a href="help.html">Help</a>
+  </nav>
+</header>
+
+<!-- ORDERS LIST -->
+<div class="container" id="orderList"></div>
+
+<script>
+/* =========================
+   READ ORDERS FROM STORAGE
+========================= */
+const orderList = document.getElementById("orderList");
+const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+/* =========================
+   NO ORDERS CASE
+========================= */
+if (orders.length === 0) {
+  orderList.innerHTML = `
+    <div class="page-box">
+      <h3>No Orders Found</h3>
+      <p>You haven’t placed any orders yet.</p>
+      <a href="index.html">Go Shopping</a>
+    </div>
+  `;
+}
+
+/* =========================
+   RENDER ORDERS
+========================= */
+orders.forEach(o => {
+  const div = document.createElement("div");
+  div.className = "order-card";
+
+  div.innerHTML = `
+    <div class="order-top">
+      <span><b>Order ID:</b> ${o.orderId}</span>
+      <span><b>Date:</b> ${o.date}</span>
+    </div>
+
+    <div class="order-body">
+      <img src="${o.image}" alt="product">
+
+      <div class="order-details">
+        <h3>${o.name}</h3>
+        <p>₹${o.price}</p>
+      </div>
+
+      <div class="status delivered">
+        ${o.status}
+      </div>
+    </div>
+  `;
+
+  orderList.appendChild(div);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+/* =====================
+   GLOBAL RESET
+===================== */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f4f4;
+}
+
+/* =====================
+   HEADER / NAVBAR
+===================== */
+.header {
+  background: #222;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  gap: 12px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav a:hover {
+  background: #4caf50;
+  transform: translateY(-2px);
+}
+
+.nav a.active {
+  background: #2196f3;
+}
+
+/* SEARCH */
+.header input {
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+/* CART */
+.cart {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* =====================
+   PRODUCT GRID
+===================== */
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+}
+
+.product p {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+/* BUTTONS */
+.product button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  color: white;
+  transition: 0.3s;
+}
+
+.product button:hover {
+  opacity: 0.9;
+}
+
+.product button:first-child {
+  background: #4caf50;
+}
+
+.product button.details {
+  background: #2196f3;
+}
+
+/* =====================
+   MODAL
+===================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  width: 320px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* =====================
+   ORDERS PAGE
+===================== */
+.order-card {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.order-top {
+  background: #f7f7f7;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #555;
+}
+
+.order-body {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  gap: 20px;
+}
+
+.order-body img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.order-details h3 {
+  margin: 0 0 8px;
+}
+
+.status {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.delivered {
+  color: green;
+}
+
+.shipped {
+  color: orange;
+}
+
+.cancelled {
+  color: red;
+}
+
+.track-btn {
+  background: #2874f0;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* =====================
+   CONTACT & HELP PAGES
+===================== */
+.page-box {
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.page-box h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-box input,
+.page-box textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.page-box textarea {
+  resize: none;
+  height: 100px;
+}
+
+.page-box button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.page-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.page-box ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* ORDER / ORDER NOW BUTTON */
+button {
+  background: #ff5722; /* orange-red */
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #e64a19;
+}
